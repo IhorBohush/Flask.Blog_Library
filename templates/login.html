@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Увійти
+{% endblock%}
+
+{% block body %}
+<div class="container">
+    <h1>Увійти</h1>
+    <form method="post">
+        <input type="text" name="username" id="login" class="form-control" placeholder="Введіть назву"><br>
+        <input type="text" name="password" id="password" class="form-control" placeholder="Введіть назву"><br>
+        <input type="submit" class="btn btn-success" value="Додати"><br>
+    </form>
+</div>
+{% endblock%}
