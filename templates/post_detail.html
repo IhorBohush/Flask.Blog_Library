@@ -9,10 +9,15 @@
 <h1>{{ article.title }}</h1>
 
     <div class="alert alert-info">
+    {% if article.image %}
+        <img src="{{ url_for('static', filename='uploads/'~article.image) }}" alt="Image" width="600">
+    {% endif %}
     <h2> {{ article.text }}</h2>
     <p><b> {{article.date.date()}}</b></p>
-    <a href="/posts/{{ article.id }}/del" class="btn btn-danger">Видалити</a>
-    <a href="/posts/{{ article.id }}/update" class="btn btn-success">Редагувати</a>
+    {% if current_user.is_authenticated and current_user.role == 'admin' %}
+        <a href="/posts/{{ article.id }}/del" class="btn btn-danger" onclick="return confirm('Ти впевнений, що хочеш видалити статтю?');">Видалити</a>
+        <a href="/posts/{{ article.id }}/update" class="btn btn-success">Редагувати</a>
+    {% endif %}
     </div>
 
 </div>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Адміністративна панель
+{% endblock%}
+
+{% block body %}
+<div class="container">
+<h1>Адміністративна панель</h1>
+<div class="alert alert-info">
+    <a class="btn btn-warning" href="/create-article">Додати статтю</a>
+    <a class="btn btn-warning" href="/create-reader">Додати читача</a>
+    <a class="btn btn-warning" href="/create-book">Додати літературу</a>
+    <a class="btn btn-warning" href="/create-task">Додати завдання</a>
+</div>
+<div class="alert alert-info">
+    <a class="btn btn-warning" href="/posts">Статті</a>
+    <a class="btn btn-warning" href="/readers">Читачі</a>
+    <a class="btn btn-warning" href="/books">Література</a>
+    <a class="btn btn-warning" href="/tasks">Завдання</a>
+</div>
+</div>
+{% endblock%}

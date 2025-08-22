@@ -7,14 +7,22 @@
 {% block body %}
 <div class="container">
     <h1>Редагувати статтю</h1>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">  <!-- Без enctype="multipart/form-data" Flask взагалі не побачить request.files. -->
         <input type="text" name="title" id="title" class="form-control" value="{{article.title}}"
                placeholder="Введіть назву"><br>
         <textarea name="intro" id="intro" class="form-control" placeholder="Введіть анонс">{{ article.intro
             }}</textarea><br>
         <textarea name="text" id="text" class="form-control" placeholder="Введіть основний текст">{{ article.text
             }}</textarea><br>
+        {% if article.image %}
+        <div class="alert alert-info">
+            <img src="{{ url_for('static', filename='uploads/'~article.image) }}" alt="Image" width="300">
+            <a href="/posts/{{ article.id }}/image-delete" class="btn btn-danger"  onclick="return confirm('Ти впевнений, що хочеш видалити зображення?');">Видалити зображення</a>
+        </div>
+        {% else %}
+        <input type="file" name="image" id="image" class="form-control"><br>
+        {% endif %}
         <input type="submit" class="btn btn-success" value="Оновити"><br>
-    </form>
+    </form> 
 </div>
 {% endblock%}

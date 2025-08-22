@@ -7,10 +7,28 @@
 {% block body %}
 <div class="container">
     <h1>Додати статтю</h1>
-    <form method="post">
+    <!-- <form method="POST" enctype="multipart/form-data">
+
+        <label for="title">Назва статті</label><br>
+        <input type="text" id="title" name="title" placeholder="Назва статті" required><br><br>
+
+        <label for="intro">Короткий опис</label><br>
+        <input type="text" id="intro" name="intro" placeholder="Короткий опис" required><br><br>
+
+        <label for="text">Текст статті</label><br>
+        <textarea id="text" name="text" placeholder="Текст статті" required></textarea><br><br>
+
+        <label for="image">Картинка</label><br>
+        <input type="file" id="image" name="image"><br><br>
+
+        <button type="submit">Додати статтю</button>
+    </form> -->
+
+    <form method="post" enctype="multipart/form-data">
         <input type="text" name="title" id="title" class="form-control" placeholder="Введіть назву"><br>
         <textarea name="intro" id="intro" class="form-control" placeholder="Введіть анонс"></textarea><br>
         <textarea name="text" id="text" class="form-control" placeholder="Введіть основний текст"></textarea><br>
+        <input type="file" name="image" id="image" class="form-control"><br>
         <input type="submit" class="btn btn-success" value="Додати"><br>
     </form>
 </div>
